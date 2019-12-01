@@ -1,5 +1,5 @@
-FROM ubuntu:12.04
-MAINTAINER Alexander Schenkel <alex@alexi.ch>
+FROM ubuntu:16.04
+MAINTAINER GarretSidzaka <GarretSidzaka@2enp.com>
 
 VOLUME ["/var/www"]
 
