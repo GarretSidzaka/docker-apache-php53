@@ -11,16 +11,22 @@ Tags
 Usage
 ------
 
+Clone the http_config and/or https_config apache configs to create your virtual host settings as per standard conventions.
+
+Make sure that you put all of your virtual hosts in separate webfolders in the `/home/user/vhosts` folder and point to them in the apache configs.
+
+
 ```bash
 $ docker run -d -p 8080:80 \
     -v /home/user/http_config:/etc/apache2/sites-available/000-default \
     -v /home/user/https_config:/etc/apache2/sites-available/default-ssl \
+    -v /home/user/crypto:/e
     -v /home/user/vhosts:/var/www \
     -e PHP_ERROR_REPORTING='E_ALL & ~E_STRICT' \
     GarretSidzaka/vhost-apache-php53
 ```
 * `-v [local path]:/etc/apache2/sites-available/default` maps the custom apache config to container's apache directory
-* `-v [local path]:/var/www` maps the container's webroot to a where you keep your sites
+* `-v [local path]:/var/www` maps the container's webroot to a folder where you keep your virtual hosts'sites
 * `-p [local port]:80` maps a local port to the container's HTTP port 80, alternatively you may map 443 if using TLS
 * `-e PHP_ERROR_REPORTING=[php error_reporting settings]` sets the value of `error_reporting` in the php.ini files.
 
