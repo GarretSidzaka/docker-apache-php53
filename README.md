@@ -6,16 +6,10 @@ A Docker image based on Ubuntu 12.04, serving the old PHP 5.3 running as Apache 
 Tags
 -----
 
-* latest: Ubuntu 12.04 (LTS), Apache 2.2, PHP 5.3.10 with support for setting `error_reporting`
+* latest: Ubuntu 16.04 (LTS), Apache 2, PHP 5.3 with support for setting `error_reporting`
 
 Usage
 ------
-
-```
-$ docker run -d -P bylexus/apache-php53
-```
-
-With all the options:
 
 ```bash
 $ docker run -d -p 8080:80 \
