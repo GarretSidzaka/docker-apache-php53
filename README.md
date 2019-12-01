@@ -19,11 +19,12 @@ With all the options:
 
 ```bash
 $ docker run -d -p 8080:80 \
+    -v /home/user/apache_config:/etc/apache2/sites-available/default \
     -v /home/user/vhosts:/var/www \
     -e PHP_ERROR_REPORTING='E_ALL & ~E_STRICT' \
-    bylexus/apache-php53
+    GarretSidzaka/vhost-apache-php53
 ```
-* `-v [local path]:/var/www` maps the custom apache config to container's apache directory
+* `-v [local path]:/etc/apache2/sites-available/default` maps the custom apache config to container's apache directory
 * `-v [local path]:/var/www` maps the container's webroot to a where you keep your sites
 * `-p [local port]:80` maps a local port to the container's HTTP port 80, alternatively you may map 443 if using TLS
 * `-e PHP_ERROR_REPORTING=[php error_reporting settings]` sets the value of `error_reporting` in the php.ini files.
