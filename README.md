@@ -19,13 +19,13 @@ With all the options:
 
 ```bash
 $ docker run -d -p 8080:80 \
-    -v /home/user/webroot:/var/www \
+    -v /home/user/vhosts:/var/www \
     -e PHP_ERROR_REPORTING='E_ALL & ~E_STRICT' \
     bylexus/apache-php53
 ```
-
-* `-v [local path]:/var/www` maps the container's webroot to a local path
-* `-p [local port]:80` maps a local port to the container's HTTP port 80
+* `-v [local path]:/var/www` maps the custom apache config to container's apache directory
+* `-v [local path]:/var/www` maps the container's webroot to a where you keep your sites
+* `-p [local port]:80` maps a local port to the container's HTTP port 80, alternatively you may map 443 if using TLS
 * `-e PHP_ERROR_REPORTING=[php error_reporting settings]` sets the value of `error_reporting` in the php.ini files.
 
 ### Access apache logs
@@ -37,7 +37,7 @@ Apache is configured to log both access and error log to STDOUT. So you can simp
 
 Installed packages
 -------------------
-* Ubuntu Server 12.04, based on ubuntu docker image
+* Ubuntu Server 16.04, based on ubuntu docker image
 * apache2
 * php5
 * php5-cli
