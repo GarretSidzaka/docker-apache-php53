@@ -13,7 +13,8 @@ Usage
 
 ```bash
 $ docker run -d -p 8080:80 \
-    -v /home/user/apache_config:/etc/apache2/sites-available/default \
+    -v /home/user/http_config:/etc/apache2/sites-available/000-default \
+    -v /home/user/https_config:/etc/apache2/sites-available/default-ssl \
     -v /home/user/vhosts:/var/www \
     -e PHP_ERROR_REPORTING='E_ALL & ~E_STRICT' \
     GarretSidzaka/vhost-apache-php53
