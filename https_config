@@ -1,0 +1,19 @@
+LoadModule ssl_module modules/mod_ssl.so
+
+Listen 443
+
+<VirtualHost *:443>
+    DocumentRoot "/www/example1"
+    ServerName www.example1.com
+    SSLEngine on
+    SSLCertificateFile "/path/to/www.example1.com.cert"
+    SSLCertificateKeyFile "/path/to/www.example1.com.key"
+</VirtualHost>
+
+<VirtualHost *:443>
+    DocumentRoot "/www/example2"
+    ServerName www.example2.com
+    SSLEngine on
+    SSLCertificateFile "/path/to/www.example2.com.cert"
+    SSLCertificateKeyFile "/path/to/www.example2.com.key"
+</VirtualHost>
