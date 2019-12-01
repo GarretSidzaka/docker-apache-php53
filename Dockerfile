@@ -12,7 +12,11 @@ RUN apt-get update && \
       php5-gd \
       php5-ldap \
       php5-mysql \
-      php5-pgsql
+      php5-pgsql \
+      sudo mkdir /etc/apache2/ssl \
+      sudo mkdir /etc/apache2/ssl/private \
+      sudo chmod 755 /etc/apache2/ssl \
+      sudo chmod 710 /etc/apache2/ssl/private \
 
 COPY run /usr/local/bin/run
 RUN chmod +x /usr/local/bin/run
