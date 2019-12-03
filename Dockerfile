@@ -16,7 +16,7 @@ RUN apt-get update && \
       sudo mkdir /etc/apache2/ssl \
       sudo mkdir /etc/apache2/ssl/private \
       sudo chmod 755 /etc/apache2/ssl \
-      sudo chmod 710 /etc/apache2/ssl/private \
+      sudo chmod 710 /etc/apache2/ssl/private
 
 COPY run /usr/local/bin/run
 RUN chmod +x /usr/local/bin/run
