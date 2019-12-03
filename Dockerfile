@@ -4,6 +4,10 @@ MAINTAINER GarretSidzaka <GarretSidzaka@2enp.com>
 VOLUME ["/var/www"]
 
 RUN apt-get update && \
+    mkdir /etc/apache2/ssl && \
+    mkdir /etc/apache2/ssl/private && \
+    chmod 755 /etc/apache2/ssl && \
+    chmod 710 /etc/apache2/ssl/private && \
     apt-get install -y \
       apache2 \
       php5 \
