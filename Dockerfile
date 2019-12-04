@@ -22,7 +22,9 @@ RUN apt-get update && \
     mkdir /etc/apache2/ssl && \
     mkdir /etc/apache2/ssl/private && \
     chmod 755 /etc/apache2/ssl && \
-    chmod 710 /etc/apache2/ssl/private
+    chmod 710 /etc/apache2/ssl/private && \
+    sed -i 's/memory_limit\s*=.*/memory_limit=1024M/g' /etc/php/5.6/cli/php.ini
+    sed -i 's/upload_max_filesize\s*=.*/upload_max_filesize=100M/g' /etc/php/5.6/cli/php.ini
 
 COPY run /usr/local/bin/run
 RUN chmod +x /usr/local/bin/run
