@@ -7,7 +7,7 @@ RUN apt-get update && \
     apt-get purge `dpkg -l | grep php| awk '{print $2}' |tr "\n" " "` && \
     apt-get install -y software-properties-common && \
     rm -rf /var/lib/apt/lists/* && \
-    add-apt-repository ppa:ondrej/php && \
+    add-apt-repository ppa:ondrej/php -y && \
     apt-get update && \    
     apt-get install -y \
       apache2 \
